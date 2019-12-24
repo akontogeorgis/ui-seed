@@ -1,0 +1,13 @@
+{
+    "dev": {
+        "appId": "ui-seed",
+        "serverBaseURI": "ui-seed",
+        "appHost": "http://localhost:3000",
+        "port": "3000",
+        "acceptAllCertificates": true,
+        "logging_level": "ALL",
+        "logging_type": {
+            "type": "console"
+        }
+    }
+}

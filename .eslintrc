@@ -1,0 +1,62 @@
+{
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "parser": "babel-eslint",
+    "plugins": [
+        "react",
+        "react-hooks",
+        "prettier"
+    ],
+    "rules": {
+        "arrow-parens": "off",
+        "brace-style": "off",
+        "eol-last": "off",
+        "implicit-arrow-linebreak": "off",
+        "import/no-extraneous-dependencies": "off",
+        "indent": "off",
+        "max-len": "off",
+        "no-confusing-arrow": "off",
+        "no-trailing-spaces": "off",
+        "no-tabs": "off",
+        "no-underscore-dangle": "off",
+        "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+        "object-curly-newline": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "padded-blocks": "off",
+        "prefer-promise-reject-errors": "off",
+        "prettier/prettier": ["error"],
+        "react/button-has-type": "off",
+        "react/destructuring-assignment": "off",
+        "react/display-name": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-boolean-value": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-first-prop-new-line": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-indent": "off",
+        "react/jsx-indent-props": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/no-render-return-value": "off",
+        "react/jsx-no-undef": [2, { "allowGlobals": true }],
+        "react/require-default-props": "off",
+        "semi-spacing": ["off"]
+    }
+}
