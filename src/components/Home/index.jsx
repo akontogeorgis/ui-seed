@@ -26,18 +26,6 @@ const Home = () => {
 
     console.log(translation);
 
-    function printUser(firstName, lastName, city) {
-        console.log(
-            `${firstName} ${lastName} lives in ${city} and speaks `,
-        );
-    }
-
-    printUser(
-        'John',
-        'Doe',
-        'New York',
-    );
-
     return (
         <>
             <section className="main-content-area">

@@ -23,7 +23,7 @@ export default (initialState) => {
 
     const store = createStore(
         rootReducer,
-        fromJS(initialState),
+        original.initialState,
         composeEnhancers(...enhancers),
     );
 

@@ -43520,12 +43520,6 @@ var Home = function Home() {
   };
 
   console.log(translation);
-
-  function printUser(firstName, lastName, city) {
-    console.log("".concat(firstName, " ").concat(lastName, " lives in ").concat(city, " and speaks "));
-  }
-
-  printUser('John', 'Doe', 'New York');
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("section", {
     className: "main-content-area"
   }, _react.default.createElement("h2", {
@@ -43600,6 +43594,7 @@ var App = function App() {
   return _react.default.createElement("div", {
     className: "page-wrap"
   }, _react.default.createElement(_reactHelmet.Helmet, {
+    defaultTitle: "UI seed",
     link: [
     /* eslint-disable global-require */
     {
@@ -67420,7 +67415,19 @@ Object.keys(_tab).forEach(function (key) {
     }
   });
 });
-},{"./translation":"../constants/translation.js","./banner":"../constants/banner.js","./tab":"../constants/tab.js"}],"../reducers/app2.js":[function(require,module,exports) {
+},{"./translation":"../constants/translation.js","./banner":"../constants/banner.js","./tab":"../constants/tab.js"}],"../reducers/initialState.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initialState = void 0;
+var initialState = {
+  translation: {},
+  activeTab: 'Initial Tab'
+};
+exports.initialState = initialState;
+},{}],"../reducers/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -67432,15 +67439,12 @@ var _immer = _interopRequireDefault(require("immer"));
 
 var _constants = require("../constants");
 
+var _initialState = require("./initialState");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var initialState = {
-  activeTab: 'Initial tab2',
-  translation: {}
-};
-
 var _default = function _default() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initialState.initialState;
 
   var _ref = arguments.length > 1 ? arguments[1] : undefined,
       type = _ref.type,
@@ -67463,15 +67467,12 @@ var _default = function _default() {
       case _constants.SET_TAB:
         draft.activeTab = payload;
         break;
-
-      default:
-        return initialState;
     }
   });
 };
 
 exports.default = _default;
-},{"immer":"../../node_modules/immer/dist/immer.module.js","../constants":"../constants/index.js"}],"../rootReducer.js":[function(require,module,exports) {
+},{"immer":"../../node_modules/immer/dist/immer.module.js","../constants":"../constants/index.js","./initialState":"../reducers/initialState.js"}],"../rootReducer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -67481,7 +67482,7 @@ exports.default = void 0;
 
 var _reduxImmutable = require("redux-immutable");
 
-var _app = _interopRequireDefault(require("./reducers/app2"));
+var _app = _interopRequireDefault(require("./reducers/app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67490,7 +67491,7 @@ var _default = (0, _reduxImmutable.combineReducers)({
 });
 
 exports.default = _default;
-},{"redux-immutable":"../../node_modules/redux-immutable/dist/index.js","./reducers/app2":"../reducers/app2.js"}],"../../node_modules/rxjs/_esm5/internal/util/root.js":[function(require,module,exports) {
+},{"redux-immutable":"../../node_modules/redux-immutable/dist/index.js","./reducers/app":"../reducers/app.js"}],"../../node_modules/rxjs/_esm5/internal/util/root.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -68237,7 +68238,7 @@ var _default = function _default(initialState) {
   var composeEnhancers = "development" !== 'production' && (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
     shouldHotReload: false
   }) : _redux.compose;
-  var store = (0, _redux.createStore)(_rootReducer.default, (0, _immutable.fromJS)(initialState), composeEnhancers.apply(void 0, enhancers));
+  var store = (0, _redux.createStore)(_rootReducer.default, _immer.original.initialState, composeEnhancers.apply(void 0, enhancers));
   epicMiddleware.run(_rootEpic.default);
 
   if (module.hot) {
@@ -68272,13 +68273,13 @@ var store = (0, _configureStore.default)({
   "app": {}
 });
 
-var Wrapped = function Wrapped() {
+var AppWrapper = function AppWrapper() {
   return _react.default.createElement(_reactRedux.Provider, {
     store: store
   }, _react.default.createElement(_app.default, null));
 };
 
-var _default = Wrapped;
+var _default = AppWrapper;
 exports.default = _default;
 },{"react":"../../node_modules/react/index.js","react-redux":"../../node_modules/react-redux/es/index.js","./app":"../app/app.jsx","../configureStore":"../configureStore.js"}],"../styles/sass/_index.sass":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
@@ -68329,7 +68330,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46703" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34957" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

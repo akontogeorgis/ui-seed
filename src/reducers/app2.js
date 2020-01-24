@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { fromJS } from 'immutable';
 
 import {
     SHOW_BANNER,
@@ -7,37 +7,30 @@ import {
     SET_TAB
 } from '../constants';
 
-const initialState = {
-    activeTab: 'Initial tab2',
-    translation: {}
-};
+import { initialState } from './initialState';
 
-export default (state = initialState, { type, payload }) => produce(state, draft => {
+export default (state = fromJS(initialState), { type, payload }) => {
 
     switch (type) {
 
         case SHOW_BANNER:
 
-            draft.bannerInfo = payload;
-            break;
+            return state.set('bannerInfo', payload);
 
         case HIDE_BANNER:
 
-            draft.bannerInfo = null;
-            break;
+            return state.set('bannerInfo', null);
 
         case SET_TRANSLATION:
 
-            draft.translation = payload;
-            break;
+            return state.set('translation', payload);
 
         case SET_TAB:
 
-            draft.activeTab = payload;
-            break;
+            return state.set('active-tab', payload);
 
         default:
 
-            return initialState;
+            return state;
     }
-});
+};

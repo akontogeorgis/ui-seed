@@ -6,9 +6,9 @@ import configureStore from '../configureStore';
 
 const store = configureStore({ "app": { } });
 
-const Wrapped = () =>
+const AppWrapper = () =>
     <Provider store={store}>
         <App />
     </Provider>;
 
-export default Wrapped;
+export default AppWrapper;

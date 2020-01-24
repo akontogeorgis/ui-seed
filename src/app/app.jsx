@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 const App = () => (
     <div className="page-wrap">
         <Helmet
+            defaultTitle="UI seed"
             link={[
                 /* eslint-disable global-require */
                 { rel: 'icon', href: require('../styles/images/favicon-32x32.png'), sizes: '32x32' },
